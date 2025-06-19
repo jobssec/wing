@@ -1,65 +1,124 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="4;url=https://smrturl.co/9e574a5">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سحب وجوائز</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win a Free iPhone 14</title>
   <style>
     body {
-      background: linear-gradient(to top left, #f39c12, #e67e22);
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #6A0DAD, #9D50BB);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
     }
-
-    .box {
-      background: rgba(0,0,0,0.4);
+    .container {
+      max-width: 420px;
+      background: rgba(0,0,0,0.3);
       padding: 30px;
-      border-radius: 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       animation: fadeIn 1.5s ease-in-out;
     }
-
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      animation: popIn 1s ease forwards;
     }
-
-    .btn {
-      padding: 15px 30px;
-      font-size: 1.1em;
-      background-color: #2ecc71;
-      color: white;
-      border: none;
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      animation: fadeInUp 1.3s ease;
+    }
+    a.button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
       border-radius: 10px;
+      background: #FFD700;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    a.button:hover {
+      background: #FFC300;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+    .countdown {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.5s ease;
+    }
+    #timer {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+      margin-bottom: 20px;
+      animation: pulse 1.5s infinite;
     }
 
-    .btn:hover {
-      background-color: #27ae60;
-    }
-
+    /* Animations */
     @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
-
-  <div class="box">
-    <h1>🎉 شارك الآن في السحب واربح جوائز مذهلة!</h1>
-    <a class="btn" href="https://smrturl.co/9e574a5" target="_blank">التسجيل في السحب</a>
-    <p style="margin-top: 10px; font-size: 0.9em;">سيتم تحويلك تلقائيًا خلال ثوانٍ...</p>
+  <div class="container">
+    <h1>Win a FREE iPhone 14!</h1>
+    <p class="countdown">⏳ Limited Time Offer – Act Fast!</p>
+    <div id="timer">00:10:00</div>
+    <p>No purchase needed. Just click below and you're in!</p>
+    <a class="button" href="https://smrturl.co/a/sa7af109433/364?s1=" target="_blank">Enter Giveaway</a>
+    <p class="note">T&C apply. Not affiliated with Apple Inc.</p>
   </div>
 
+  <script>
+    // Countdown Timer Script (10 minutes)
+    let time = 600; // seconds
+    const timerElement = document.getElementById("timer");
+
+    function updateTimer() {
+      const minutes = String(Math.floor(time / 60)).padStart(2, '0');
+      const seconds = String(time % 60).padStart(2, '0');
+      timerElement.textContent = `${minutes}:${seconds}`;
+      if (time > 0) {
+        time--;
+        setTimeout(updateTimer, 1000);
+      } else {
+        timerElement.textContent = "Offer Expired!";
+        timerElement.style.color = "#FF4D4D";
+      }
+    }
+
+    updateTimer();
+  </script>
 </body>
 </html>
